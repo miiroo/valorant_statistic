@@ -50,6 +50,7 @@
             this.losecount = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.season = new System.Windows.Forms.Label();
+            this.deleteLastMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -218,7 +219,8 @@
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addSeasonToolStripMenuItem,
             this.chooseSeasonToolStripMenuItem,
-            this.showAllMatchesToolStripMenuItem});
+            this.showAllMatchesToolStripMenuItem,
+            this.deleteLastMatchToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
@@ -321,6 +323,15 @@
             this.season.TabIndex = 19;
             this.season.Text = "0";
             // 
+            // deleteLastMatchToolStripMenuItem
+            // 
+            this.deleteLastMatchToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.deleteLastMatchToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.deleteLastMatchToolStripMenuItem.Name = "deleteLastMatchToolStripMenuItem";
+            this.deleteLastMatchToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.deleteLastMatchToolStripMenuItem.Text = "Delete last match";
+            this.deleteLastMatchToolStripMenuItem.Click += new System.EventHandler(this.deleteLastMatchToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,6 +401,7 @@
         private System.Windows.Forms.Label losecount;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label season;
+        private System.Windows.Forms.ToolStripMenuItem deleteLastMatchToolStripMenuItem;
     }
 }
 

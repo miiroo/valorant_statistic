@@ -15,11 +15,12 @@ namespace valorant_statistic
     public partial class Form1 : Form
     {
 
-        public String fileName = @"datas.txt";
+        public String fileName = "datas.txt";
         public String seasonName = "";
 
         public Form1() {
             InitializeComponent();
+            
         }
 
         //line 0 - settings and datas 
@@ -176,7 +177,7 @@ namespace valorant_statistic
                                 k++;
                             }
                             if (deaths != "")
-                            deathsI = Int32.Parse(deaths);
+                            deathsI += Int32.Parse(deaths);
                             
                         }
 
@@ -212,7 +213,7 @@ namespace valorant_statistic
                 if (total != 0) {
                     averagecs = averagecs / total;
                     if (deathsI == 0) deathsI = 1;
-                    kdaratio = killsI / deathsI;
+                    kdaratio = (float)killsI / (float)deathsI;
                 }
 
             }
@@ -241,9 +242,36 @@ namespace valorant_statistic
                 sw.WriteLine(seasonName + "*" + textBox1.Text + "*" + textBox2.Text + "*" + textBox3.Text + "*" + DateTime.Today.ToShortDateString());
                 sw.Close();
                 updateSeasonStat();
+                MessageBox.Show("Mathc added.");
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
             }
             else {
                 MessageBox.Show("Add season first.");
+            }
+        }
+
+        private void deleteLastMatchToolStripMenuItem_Click(object sender, EventArgs e) {
+            string[] lines = File.ReadAllLines(fileName);
+            if (lines.Length > 1) {
+                try {
+                    StreamWriter sw = new StreamWriter(fileName, false);
+                    for(int i=0; i<lines.Length-1; i++) {
+                        string line = lines[i];
+                        sw.WriteLine(line);
+                    }
+                    sw.Close();
+                }
+                catch (Exception e1) {
+                    MessageBox.Show(e1.ToString());
+                    this.Close();
+                }
+                MessageBox.Show("Last match was deleted.");
+                updateSeasonStat();
+            }
+            else {
+                MessageBox.Show("Nothing to delete.");
             }
         }
     }
